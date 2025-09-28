@@ -1,7 +1,7 @@
 import { DataProvider } from "@plasmicapp/loader-nextjs";
 import { useState, useCallback, useEffect } from "react";
 
-export function SimpleGlobalProvider({ children, className, userData: initialUserData }) {
+function SimpleGlobalProvider({ children, className, userData: initialUserData }) {
   const [userData, setUserData] = useState(initialUserData); // fallback to {}
 
   // i don't really need to update user again because i can refresh the queries
@@ -26,3 +26,5 @@ export function SimpleGlobalProvider({ children, className, userData: initialUse
     </div>
   );
 }
+
+export default SimpleGlobalProvider;

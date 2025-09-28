@@ -1,6 +1,6 @@
 import { DataProvider } from "@plasmicapp/loader-nextjs";
 
-export function AdminRoleSpecificProvider({
+function AdminRoleSpecificProvider({
   children,
   className,
   allCoursesData,
@@ -22,3 +22,5 @@ export function AdminRoleSpecificProvider({
     </div>
   );
 }
+
+export default AdminRoleSpecificProvider;
