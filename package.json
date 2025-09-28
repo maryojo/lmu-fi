@@ -9,10 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^7.1.0",
     "@plasmicapp/loader-nextjs": "^1.0.440",
     "next": "14.2.33",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "@supabase/ssr": "^0.5.2",
+    "plasmic-supabase": "^0.5.1",
+    "react-quiz-component": "^0.9.1"
   },
   "devDependencies": {
     "eslint": "^8",
