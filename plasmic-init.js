@@ -17,6 +17,8 @@ import StudentRoleSpecificProvider from "./my-contexts/StudentRoleSpecificProvid
 import InstructorRoleSpecificProvider from "./my-contexts/InstructorRoleSpecificProvider"
 
 import CustomAccordionItem from "./my-code-components/CustomAccordionItem"
+import { APP_CONSTANTS } from "./constants";
+// import { CopyToClipboard } from "./my-functions/copyToClipboard";
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
@@ -119,6 +121,11 @@ PLASMIC.registerComponent(SimpleGlobalProvider, {
       type: "object",
       displayName: "User Data"
     },
+    constants: {
+      type: "object",
+      displayName: "App Constants",
+      defaultValue: APP_CONSTANTS
+    },
     children: {
       type: "slot"
     },
@@ -205,6 +212,15 @@ PLASMIC.registerComponent(InstructorRoleSpecificProvider, {
     }
   }
 });
+
+// not working
+// PLASMIC.registerComponent(CopyToClipboard, {
+//   name: "CopyToClipboard",
+//   props: {
+//     text: "string",
+//     children: "slot"
+//   }
+// });
 
 PLASMIC.registerComponent(SupabaseProvider, SupabaseProviderMeta);
 PLASMIC.registerComponent(SupabaseUppyUploader, SupabaseUppyUploaderMeta);

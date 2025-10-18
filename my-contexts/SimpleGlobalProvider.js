@@ -1,3 +1,4 @@
+import { APP_CONSTANTS } from "@/constants";
 import { DataProvider } from "@plasmicapp/loader-nextjs";
 import { useState, useCallback, useEffect } from "react";
 
@@ -20,7 +21,9 @@ function SimpleGlobalProvider({ children, className, userData: initialUserData }
     <div className={className}>
       <DataProvider name="globalUserData" data={userData}>
         <DataProvider name="setGlobalUserData" data={updateUser}>
-          {children}
+          <DataProvider name="globalConstants" data={APP_CONSTANTS}>
+            {children}
+          </DataProvider>
         </DataProvider>
       </DataProvider>
     </div>
