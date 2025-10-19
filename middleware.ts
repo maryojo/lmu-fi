@@ -13,6 +13,7 @@ const publicRoutes = [
   '/plasmic-host',
   '/reset-password',
   '/register-admin',
+  '/register-instructor',
   '/signup-successful'
 ]
 
