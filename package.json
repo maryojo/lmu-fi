@@ -31,6 +31,9 @@
     "plasmic-supabase": "^0.5.1",
     "react-quiz-component": "^0.9.1"
   },
+  "optionalDependencies": {
+    "@supabase/supabase-js": "^2.26.0"
+  },
   "devDependencies": {
     "eslint": "^8",
     "eslint-config-next": "14.2.33"
