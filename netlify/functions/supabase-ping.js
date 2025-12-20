@@ -10,13 +10,17 @@ export default async function () {
       process.env.SUPABASE_ANON_KEY
     )
 
-    // Health check: simple query to verify Supabase is reachable
-    const { data, error } = await supabase.rpc('now')
+    // Query an actual table in your database
+    // Replace 'your_table_name' with any table you have
+    const { data, error } = await supabase
+      .from('avatars')
+      .select('*')
+      .limit(1)
 
     if (error) {
       console.error('Health check failed:', error)
-    } else {
-      console.log('Supabase health check passed at:', new Date().toISOString())
+    } else { 
+    console.log('Supabase health check passed at:', new Date().toISOString()) 
     }
   } catch (err) {
     console.error('Scheduled function error:', err)
