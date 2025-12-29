@@ -5,6 +5,6 @@
   # Directory for Netlify Functions (defaults to "netlify/functions")
   directory = "netlify/functions"
 
-[functions."supabase-ping"]
+[functions."supabase-pin"]
   # Schedule the function (UTC). Remove this if you prefer the inline `config` in the function file.
   schedule = "@hourly"
