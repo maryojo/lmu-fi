@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 
-// Schedule: every 6 days at 00:00 UTC
-export const config = { schedule: '0 0 */6 * *' }
+// Schedule: run hourly
+export const config = { schedule: '@hourly' }
 
 export default async function () {
   try {
@@ -19,10 +19,22 @@ export default async function () {
 
     if (error) {
       console.error('Health check failed:', error)
-    } else { 
-    console.log('Supabase health check passed at:', new Date().toISOString()) 
+      return {
+        statusCode: 502,
+        body: JSON.stringify({ ok: false, error: error.message || error })
+      }
+    }
+
+    console.log('Supabase health check passed at:', new Date().toISOString())
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ ok: true, checked_at: new Date().toISOString(), data })
     }
   } catch (err) {
     console.error('Scheduled function error:', err)
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ ok: false, error: err.message || String(err) })
+    }
   }
 }
