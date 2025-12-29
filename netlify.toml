@@ -7,4 +7,4 @@
 
 [functions."supabase-ping"]
   # Schedule the function (UTC). Remove this if you prefer the inline `config` in the function file.
-  schedule = "0 0 */6 * *" # every 6 days at 00:00 UTC
+  schedule = "@hourly"
