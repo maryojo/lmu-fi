@@ -19,22 +19,22 @@ export default async function () {
 
     if (error) {
       console.error('Health check failed:', error)
-      return {
-        statusCode: 502,
-        body: JSON.stringify({ ok: false, error: error.message || error })
-      }
+      return new Response(JSON.stringify({ ok: false, error: error.message || error }), {
+        status: 502,
+        headers: { 'Content-Type': 'application/json' }
+      })
     }
 
     console.log('Supabase health check passed at:', new Date().toISOString())
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ ok: true, checked_at: new Date().toISOString(), data })
-    }
+    return new Response(JSON.stringify({ ok: true, checked_at: new Date().toISOString(), data }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' }
+    })
   } catch (err) {
     console.error('Scheduled function error:', err)
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ ok: false, error: err.message || String(err) })
-    }
+    return new Response(JSON.stringify({ ok: false, error: err.message || String(err) }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    })
   }
 }
